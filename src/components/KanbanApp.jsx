@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-
+import { v4 as uuidv4 } from 'uuid'
 // import { Container } from './styles';
 const kanbanItems = [
   {id: "001", content: "Conteúdo 1"},
@@ -11,12 +11,17 @@ const kanbanItems = [
 const kanbanColumns = [
   {
     name: "To do",
-    id: "123",
+    id: uuidv4(),
     items: kanbanItems,
   }, 
   {
     name: "Doing",
-    id: "456",
+    id: uuidv4(),
+    items: [],
+  },
+  {
+    name: "Done",
+    id: uuidv4(),
     items: [],
   }
 ]
@@ -27,28 +32,50 @@ export function KanbanApp() {
   const [columns, setColumns] = useState(kanbanColumns)
 
   const onDragEnd = (result) => {
-    console.log(result)
-    var sourceColumnItems = columns[0].items
-    var draggedItem = {}
+
+    let sourceColumnItems = []
+    let destinationColumnItems = []
+    let draggedItem = {}
+    let sourceColumnId = 0
+    let destinationColumnId = 0
+
+    for (let i in columns) {
+      if(columns[i].id == result.source.droppableId) {
+        sourceColumnItems = columns[i].items
+        sourceColumnId = i
+      } else if(columns[i].id == result.destination.droppableId) {
+        destinationColumnItems = columns[i].items
+        destinationColumnId = i
+      }
+    }
+
+    console.log(sourceColumnItems)
+    console.log(destinationColumnItems)
   
-    for(var i in sourceColumnItems) {
+    for(let i in sourceColumnItems) {
       if(sourceColumnItems[i].id == result.draggableId) {
         draggedItem = sourceColumnItems[i]
       }
     }
     // Excluí objeto arastado.
-    var filteredSourceColumnItems = sourceColumnItems.filter((item) => item.id !== result.draggableId)
+    let filteredSourceColumnItems = sourceColumnItems.filter((item) => item.id !== result.draggableId)
     
     // Adicionar o objeto arrastado para a nova posição
-    filteredSourceColumnItems.splice(result.destination.index, 0, draggedItem)
-    console.log(filteredSourceColumnItems)
-    console.log(draggedItem)
-  
-    // Mudar o state
-    // columns[0].items = filteredSourceColumnItems
-    var columnsCopy = JSON.parse(JSON.stringify(columns))
-    columnsCopy[0].items = filteredSourceColumnItems
-    setColumns(columnsCopy)
+    if(result.source.droppableId == result.destination.droppableId) {
+      filteredSourceColumnItems.splice(result.destination.index, 0, draggedItem)
+      // Mudar o state
+      let columnsCopy = JSON.parse(JSON.stringify(columns))
+      columnsCopy[sourceColumnId].items = filteredSourceColumnItems
+      setColumns(columnsCopy)
+    } else {
+      destinationColumnItems.splice(result.destination.index, 0, draggedItem)
+      // Mudar o state
+      let columnsCopy = JSON.parse(JSON.stringify(columns))
+      columnsCopy[sourceColumnId].items = filteredSourceColumnItems
+      columnsCopy[destinationColumnId].items = destinationColumnItems
+      setColumns(columnsCopy)
+    }
+
   }
 
   return (
