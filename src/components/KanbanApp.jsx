@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { v4 as uuidv4 } from 'uuid'
-// import { Container } from './styles';
+import Button from 'react-bootstrap/Button';
+import { AddCardModal } from "./Modals"
+import { BsPlusSquare } from "react-icons/bs";
+import { ContainerTasks } from "./styles/styleKanbanApp"
+
+
+
 const kanbanItems = [
   {id: "001", content: "Conteúdo 1"},
   {id: "002", content: "Conteúdo 2"},
   {id: "003", content: "Conteúdo 3"},
 ]
+
 
 const kanbanColumns = [
   {
@@ -30,14 +37,14 @@ const kanbanColumns = [
 
 export function KanbanApp() {
   const [columns, setColumns] = useState(kanbanColumns)
+  const [modalShow, setModalShow] = useState(false)
+  let sourceColumnItems = []
+  let destinationColumnItems = []
+  let draggedItem = {}
+  let sourceColumnId = 0
+  let destinationColumnId = 0
 
   const onDragEnd = (result) => {
-
-    let sourceColumnItems = []
-    let destinationColumnItems = []
-    let draggedItem = {}
-    let sourceColumnId = 0
-    let destinationColumnId = 0
 
     for (let i in columns) {
       if(columns[i].id == result.source.droppableId) {
@@ -78,40 +85,52 @@ export function KanbanApp() {
 
   }
 
+
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <DragDropContext onDragEnd={onDragEnd}>
-        {columns.map((column) => (
-          <div key={column.id} style={{ display: "flex", flexDirection:"column", alignItems:"center"}}>
-            <h1>{column.name}</h1>
-            <Droppable droppableId={column.id} key={column.id}>
-              {(provided) => (
-                <div 
-                  ref={provided.innerRef} 
-                  style={{ backgroundColor: "lightblue", width: 250, height: 500, padding: 5, margin: 10 }}
-                >
-                  {column.items.map((item, index) => (
-                    <Draggable draggableId={item.id} index={index} key={item.id}>
-                      {(provided) => (
-                        <div 
-                          {...provided.dragHandleProps}
-                          {...provided.draggableProps}
-                          ref={provided.innerRef} 
-                          style={{background: 'gray', height: '3.5rem', margin: 5, display: 'flex', alignItems: 'center', justifyContent: 'center', ...provided.draggableProps.style }}
-                        > 
-                          {item.content} 
-                        </div>
-                        )}
-                    </Draggable>
-                  ))}
-                {provided.placeholder}
+    <div style={{ display: "block"}}>
+
+
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <DragDropContext onDragEnd={onDragEnd}>
+          {columns.map((column) => (
+            <ContainerTasks key={column.id} style={{ display: "flex", flexDirection:"column", alignItems:"center"}}>
+              <h1>{column.name}</h1>
+              <div onClick={() => setModalShow(true)} style={{display: 'flex', alignItems: 'center'}}>
+                <span style={{marginRight: 5}}>Adicionar card</span> <BsPlusSquare />
               </div>
-              )}
-            </Droppable>
-          </div>  
-        ))}
-      </DragDropContext>
-    </div>
+              <AddCardModal 
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+              />
+              <Droppable droppableId={column.id} key={column.id}>
+                {(provided) => (
+                  <div 
+                    ref={provided.innerRef} 
+                    style={{ backgroundColor: "lightblue", width: 250, height: 500, padding: 5, margin: 10 }}
+                  >
+                    {column.items.map((item, index) => (
+                      <Draggable draggableId={item.id} index={index} key={item.id}>
+                        {(provided) => (
+                          <div 
+                            {...provided.dragHandleProps}
+                            {...provided.draggableProps}
+                            ref={provided.innerRef} 
+                            style={{background: 'gray', height: '3.5rem', margin: 5, display: 'flex', alignItems: 'center', justifyContent: 'center', ...provided.draggableProps.style }}
+                          > 
+                            {item.content}                          
+                          </div>
+                          )}
+                      </Draggable>
+                    ))}
+                  {provided.placeholder}
+                </div>
+                )}
+              </Droppable>
+            </ContainerTasks>  
+          ))}
+        </DragDropContext>
+      </div>
+    </div>  
   )
 }
 
