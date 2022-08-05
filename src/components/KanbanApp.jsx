@@ -1,18 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
 import { v4 as uuidv4 } from 'uuid'
-import Button from 'react-bootstrap/Button';
 import { AddCardModal } from "./Modals"
 import { BsPlusSquare } from "react-icons/bs";
 import { ContainerTasks } from "./styles/styleKanbanApp"
 
 
-
-const kanbanItems = [
-  {id: "001", content: "Conteúdo 1"},
-  {id: "002", content: "Conteúdo 2"},
-  {id: "003", content: "Conteúdo 3"},
-]
+const tasks = JSON.parse(localStorage.getItem('tasks'))
+const kanbanItems = tasks ? tasks : [] 
 
 
 const kanbanColumns = [
@@ -37,12 +32,17 @@ const kanbanColumns = [
 
 export function KanbanApp() {
   const [columns, setColumns] = useState(kanbanColumns)
-  const [modalShow, setModalShow] = useState(false)
+  
+  
   let sourceColumnItems = []
   let destinationColumnItems = []
   let draggedItem = {}
   let sourceColumnId = 0
   let destinationColumnId = 0
+
+const [modalShow, setModalShow] = useState(false)
+
+
 
   const onDragEnd = (result) => {
 
@@ -85,18 +85,16 @@ export function KanbanApp() {
 
   }
 
-
   return (
     <div style={{ display: "block"}}>
-
-
+    
       <div style={{ display: "flex", justifyContent: "center" }}>
         <DragDropContext onDragEnd={onDragEnd}>
           {columns.map((column) => (
             <ContainerTasks key={column.id} style={{ display: "flex", flexDirection:"column", alignItems:"center"}}>
               <h1>{column.name}</h1>
               <div onClick={() => setModalShow(true)} style={{display: 'flex', alignItems: 'center'}}>
-                <span style={{marginRight: 5}}>Adicionar card</span> <BsPlusSquare />
+                <span style={{marginRight: 5}}>Adicionar tarefa</span> <BsPlusSquare />
               </div>
               <AddCardModal 
                 show={modalShow}
@@ -117,7 +115,12 @@ export function KanbanApp() {
                             ref={provided.innerRef} 
                             style={{background: 'gray', height: '3.5rem', margin: 5, display: 'flex', alignItems: 'center', justifyContent: 'center', ...provided.draggableProps.style }}
                           > 
-                            {item.content}                          
+                            <div style={{display: 'flex', flexDirection: "column", alignItems: "center"}}>
+                              {item.title}  
+                              <div>
+                                {item.description}       
+                              </div>                  
+                            </div>   
                           </div>
                           )}
                       </Draggable>
@@ -132,5 +135,8 @@ export function KanbanApp() {
       </div>
     </div>  
   )
+
+  
+  
 }
 
