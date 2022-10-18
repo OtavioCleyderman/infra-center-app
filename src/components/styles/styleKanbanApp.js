@@ -7,6 +7,9 @@ export const DivScroll = styled.div`
   display: flex;
 `
 export const ContainerTasks = styled.div`
+  
+
+
   &:nth-child(1) > div:nth-child(2) {
     visibility: visible; 
   }

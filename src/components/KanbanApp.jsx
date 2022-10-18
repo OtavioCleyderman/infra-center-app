@@ -92,7 +92,7 @@ const [modalShow, setModalShow] = useState(false)
         <DragDropContext onDragEnd={onDragEnd}>
           {columns.map((column) => (
             <ContainerTasks key={column.id} style={{ display: "flex", flexDirection:"column", alignItems:"center"}}>
-              <h1>{column.name}</h1>
+              <h2>{column.name}</h2>
               <div onClick={() => setModalShow(true)} style={{display: 'flex', alignItems: 'center'}}>
                 <span style={{marginRight: 5}}>Adicionar tarefa</span> <BsPlusSquare />
               </div>
