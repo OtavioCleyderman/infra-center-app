@@ -7,11 +7,11 @@ import {StyledContainer} from './styles/styleMenuNavigation'
 export function MenuNavigation(){
   return (
     <StyledContainer >
-      <Navbar collapseOnSelect expand="sm" bg="red" variant="light">
-        <Container className='navBar'>
+      <Navbar collapseOnSelect expand="sm" variant="light" className='navbar-dark'> 
+        <Container className='navBar ' >
           <Navbar.Brand as={Link} to="/">Infra Center</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-          <Navbar.Collapse id="responsive-navbar-nav">
+          <Navbar.Collapse id="responsive-navbar-nav"  >
             <Nav className="m-auto" >
               <Nav.Link as={Link} to="/">Início</Nav.Link>
               <Nav.Link as={Link} to="/phrases">Frases</Nav.Link>

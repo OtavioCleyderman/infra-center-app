@@ -14,7 +14,7 @@ export const Container = styled.div`
 
   details p{
     margin: .5rem 0 .5rem 2rem;
-    width: 40rem;
+    max-width: 40rem;
     font-size: clamp(.8rem, 1.5vw, 3.5rem);
   }
 `

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledContainer = styled.div`
     *{
-        color: white;
+        color: #FFFFFF;
         font-weight: 500;
     }
     *:hover{
@@ -13,6 +13,10 @@ export const StyledContainer = styled.div`
     
     .navBar{
         margin: 0;
-        
     }
+
+    .navbar-toggler-icon{
+        fill: #FFFFFF;
+    }
+   
 `
