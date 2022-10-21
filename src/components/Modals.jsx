@@ -8,14 +8,15 @@ export function AddCardModal(props) {
 const [title, setTitle] = useState('')
 const [description, setDescription] = useState('')
 let id = uuidv4()
-let tasks = JSON.parse(localStorage.getItem('tasks')) || []
+let taskItems = JSON.parse(localStorage.getItem('taskItems')) || []
 
 const getDataForm = () => {
-  tasks.push({id, title, description}) 
-  localStorage.setItem('tasks', JSON.stringify(tasks))
+  taskItems.push({id, title, description}) 
+  localStorage.setItem('taskItems', JSON.stringify(taskItems))
   props.onHide()
   setTitle('')
   setDescription('')
+  location.reload()
 } 
 
 

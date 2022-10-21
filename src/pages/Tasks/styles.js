@@ -16,8 +16,11 @@ export const Container = styled.div`
 export const DivScroll = styled.div`
 
   @media (min-width: 822px) {
-      justify-content: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    justify-content: center;
   }
+  
   margin: .5rem;
   overflow-x: scroll;
   overflow-y: scroll;
