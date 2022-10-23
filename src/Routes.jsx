@@ -6,7 +6,7 @@ import {
 
 import { Home } from "./pages/Home/Home"
 import { Phrases } from "./pages/Phrases/Phrases"
-import { Account } from "./pages/Account/Account"
+import { Notes } from "./pages/Notes/Notes"
 import { Tasks } from "./pages/Tasks/Tasks"
 import { OpeningSentences } from "./pages/Phrases/Categories/OpeningSentences"
 import { AboutLuizaCard } from "./pages/Phrases/Categories/AboutLuizaCard"
@@ -22,7 +22,7 @@ export function AppRoutes() {
         <Route path="/phrases/about-luiza-card" element={<AboutLuizaCard />} />
         <Route path="/phrases/about-equipment" element={<AboutEquipment />} />
         <Route path="/my-tasks" element={<Tasks />} />
-        <Route path="/account" element={<Account />} />
+        <Route path="/notes" element={<Notes />} />
       </Routes>
     </Router>
   )

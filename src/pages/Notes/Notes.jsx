@@ -1,10 +1,11 @@
 import { MenuNavigation } from "../../components/MenuNavigation"
+import  { NotesApp }   from "../../components/NotesApp"
 
-export function Account() {
+export function Notes() {
   return (
     <>
       <MenuNavigation />
-      <h1>Account</h1>
+      <NotesApp />
     </>
   )
 }
