@@ -33,9 +33,6 @@ const baseKanbanColumns = [
 
 const kanbanColumns = tasks ? tasks : baseKanbanColumns
 
-
-
-
 export function KanbanApp() {
   const [columns, setColumns] = useState(kanbanColumns)
   

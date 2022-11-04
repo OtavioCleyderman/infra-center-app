@@ -4,21 +4,29 @@ import Form from 'react-bootstrap/Form';
 import { v4 as uuidv4 } from 'uuid'
 import { useState } from 'react';
 
+
+
 export function AddCardModal(props) {
 const [title, setTitle] = useState('')
 const [description, setDescription] = useState('')
 let id = uuidv4()
 let taskItems = JSON.parse(localStorage.getItem('taskItems')) || []
 
+
 const getDataForm = () => {
-  taskItems.push({id, title, description}) 
-  localStorage.setItem('taskItems', JSON.stringify(taskItems))
+  var tasks = JSON.parse(localStorage.getItem('tasks'))
+  if (!tasks) {
+    taskItems.push({id, title, description}) 
+    localStorage.setItem('taskItems', JSON.stringify(taskItems))
+  } else  {
+    tasks[0].items.push({id, title, description})
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  }
   props.onHide()
   setTitle('')
   setDescription('')
   location.reload()
 } 
-
 
 
   return (
