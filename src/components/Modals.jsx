@@ -4,8 +4,6 @@ import Form from 'react-bootstrap/Form';
 import { v4 as uuidv4 } from 'uuid'
 import { useState } from 'react';
 
-
-
 export function AddCardModal(props) {
 const [title, setTitle] = useState('')
 const [description, setDescription] = useState('')

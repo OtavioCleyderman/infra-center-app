@@ -1,20 +1,18 @@
 import { Container } from './styles/styleNotesApp'
 import NotesAPI from "../assets/services/apis/NotesAPI"
 
-
 const notes = NotesAPI.getAllNotes();
 const notesLocalStorage = JSON.parse(localStorage.getItem("notesapp-notes")) ;
 
+
 document.addEventListener("DOMContentLoaded", function(){
-    
     const btnAddNote = document.querySelector(".notes__add");
-    const noteListItems = document.querySelectorAll(".notes__list-item")
     const inpTitle = document.querySelector(".notes__title");
     const inpBody = document.querySelector(".notes__body");
+    const btnSaveNote = document.querySelector(".save__note")
     const notesListContainer = document.querySelector(".notes__list");
     let noteSelectedID
 
-    console.log(notes)
 
     // Adicionar uma nota
     btnAddNote.addEventListener("click", () => {
@@ -22,27 +20,36 @@ document.addEventListener("DOMContentLoaded", function(){
             title: "Nova nota!",
             body: "Tome nota..."
         };
-
         NotesAPI.saveNote(newNote)
+        location.reload()
+
+        const selectedNewNote = JSON.parse(localStorage.getItem("notesapp-notes")) ;
+        const recentNoteId = selectedNewNote[selectedNewNote.length - 1].id
+        
+        document.querySelector(`.notes__list-item[data-note-id="${recentNoteId}"]`).classList.add("notes__list-item--selected");
+        updateNotePreviewVisibility(true)
+    });
+
+ 
+
+
+  
+    // Salvar uma nota após modificar ela 
+    btnSaveNote.addEventListener("click", () => {
+        const updatedTitle = inpTitle.value.trim();
+        const updatedBody = inpBody.value.trim();
+        
+        NotesAPI.saveNote({
+            title: updatedTitle,
+            body: updatedBody,
+            id: noteSelectedID
+        });
 
         location.reload()
+       
     });
-
-    [inpTitle, inpBody].forEach(inputField => {
-        inputField.addEventListener("blur", () => {
-            const updatedTitle = inpTitle.value.trim();
-            const updatedBody = inpBody.value.trim();
-            
-            NotesAPI.saveNote({
-                id: noteSelectedID,
-                title: updatedTitle,
-                body: updatedBody
-            });
-
-            location.reload()
-
-        });
-    });
+   
+    
 
 
     // Adicionando eventos para selecionar ou excluir as notas
@@ -55,7 +62,6 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
         noteListItem.addEventListener("click", () => {
-            console.log(noteListItem.dataset.noteId);
             noteSelectedID = noteListItem.dataset.noteId
             const selectedNote = notes.find(note => note.id == noteSelectedID);
             
@@ -72,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
         noteListItem.addEventListener("dblclick", () => {
-            const doDelete = confirm("Are you sure you want to delete this note?");
+            const doDelete = confirm("Você tem certeza que deseja excluir permanentemente essa nota?");
 
             if (doDelete) {
                 const noteId = noteListItem.dataset.noteId
@@ -83,12 +89,11 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 
 
-
-    
-
-
-
 })
+
+
+
+
 
 
 
@@ -116,6 +121,7 @@ export function NotesApp() {
               <div className="notes__preview">
                   <input className="notes__title" type="text" placeholder="Nova nota..."/>
                   <textarea className="notes__body" defaultValue="Tome nota..."></textarea>
+                  <button className='save__note' >Salvar nota</button>
               </div>
           </div>
       </Container>

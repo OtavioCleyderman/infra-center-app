@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid'
 
+
 export default class NotesAPI {
     static getAllNotes(){
         const notes = JSON.parse(localStorage.getItem("notesapp-notes") || "[]");
@@ -19,10 +20,9 @@ export default class NotesAPI {
             existing.body = noteToSave.body;
             existing.updated = new Date().toISOString();
         } else {
-            noteToSave.id = uuidv4();
             noteToSave.updated = new Date().toISOString();
+            noteToSave.id = uuidv4();
             notes.push(noteToSave);
-
         }
 
 

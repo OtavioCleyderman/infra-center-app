@@ -8,7 +8,7 @@ export const Container = styled.div`
   height: 100%;
   margin: 0;
 
-  .notes {
+.notes {
     display: flex;
     height: 100%;
 }
@@ -96,5 +96,15 @@ export const Container = styled.div`
     line-height: 1.5;
     margin-top: 2em;
     resize: none;
+}
+
+.save__note {
+    background: #0000FF;
+    color: #FFFFFF;
+    border: none;
+    width: 8.2rem;
+    margin-top: 0.5rem;
+    border-radius: 4px;
+    padding: 5px;
 }
 `
