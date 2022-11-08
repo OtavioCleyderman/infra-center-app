@@ -1,8 +1,8 @@
 import { Container } from './styles/styleNotesApp'
 import NotesAPI from "../assets/services/apis/NotesAPI"
-
+import { useState } from 'react';
 const notes = NotesAPI.getAllNotes();
-const notesLocalStorage = JSON.parse(localStorage.getItem("notesapp-notes")) ;
+
 
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -23,15 +23,12 @@ document.addEventListener("DOMContentLoaded", function(){
         NotesAPI.saveNote(newNote)
         location.reload()
 
-        const selectedNewNote = JSON.parse(localStorage.getItem("notesapp-notes")) ;
-        const recentNoteId = selectedNewNote[selectedNewNote.length - 1].id
-        
-        document.querySelector(`.notes__list-item[data-note-id="${recentNoteId}"]`).classList.add("notes__list-item--selected");
-        updateNotePreviewVisibility(true)
     });
 
- 
-
+    // const lastNoteCreated = JSON.parse(localStorage.getItem("notesapp-notes"));
+    // document.querySelector(`.notes__list-item[data-note-id="${lastNoteCreated[lastNoteCreated.length -1].id}"]`).classList.add("notes__list-item--selected");
+    // updateNotePreviewVisibility(true)
+    
 
   
     // Salvar uma nota após modificar ela 
@@ -92,13 +89,8 @@ document.addEventListener("DOMContentLoaded", function(){
 })
 
 
-
-
-
-
-
-
 export function NotesApp() {
+const [notesLocalStorage, setNotesLocalStorage] = useState(JSON.parse(localStorage.getItem("notesapp-notes")));
   return (
       <Container>
           <div className="notes" id="app">

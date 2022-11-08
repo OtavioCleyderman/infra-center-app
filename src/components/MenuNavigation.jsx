@@ -16,7 +16,7 @@ export function MenuNavigation(){
               <Nav.Link as={Link} to="/">Início</Nav.Link>
               <Nav.Link as={Link} to="/phrases">Frases</Nav.Link>
               <Nav.Link as={Link} to="/my-tasks">Minhas demandas</Nav.Link>
-              <Nav.Link as={Link} to="/notes">Notas</Nav.Link>
+              <Nav.Link href="/notes">Notas</Nav.Link> {/* Realizado com href para que a página recarregue */}
             </Nav>
           </Navbar.Collapse>
         </Container>

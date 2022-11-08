@@ -26,7 +26,7 @@ export const Container = styled.div`
 }
 
 .notes__add {
-    background: #009578;
+    background: #0000FF;
     border: none;
     border-radius: 7px;
     color: #ffffff;
@@ -39,7 +39,7 @@ export const Container = styled.div`
 }
 
 .notes__add:hover {
-    background: #00af8c;
+    background: #0bbaff;
 }
 
 .notes__list-item {
@@ -106,5 +106,9 @@ export const Container = styled.div`
     margin-top: 0.5rem;
     border-radius: 4px;
     padding: 5px;
+}
+
+.save__note:hover{
+    background: #0bbaff;
 }
 `
