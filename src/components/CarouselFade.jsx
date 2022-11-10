@@ -16,8 +16,8 @@ export function CarouselFade() {
             alt="First slide"
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>Métricas e monitoramento</h3>
+            <p>Agora tenha em suas mãos as métricas e monitoramento de equipes e ambientes!</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -28,8 +28,8 @@ export function CarouselFade() {
           />
 
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>Equipe qualificada e reforçada</h3>
+            <p>Quadro da empresa sobe contando com equipe qualificada e pronta para ajudar na espanção dos nossos serviços de infra e suporte!</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -40,9 +40,9 @@ export function CarouselFade() {
           />
 
           <Carousel.Caption>
-            <h3>Third slide label</h3>
+            <h3>Nova infraestrutura de rede</h3>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              Agora com maior organização, tecnologia de ponta e maior conexão!
             </p>
           </Carousel.Caption>
         </Carousel.Item>

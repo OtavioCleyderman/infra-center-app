@@ -7,14 +7,12 @@ import PhrasesAPI from '../../../assets/services/apis/PhrasesAPI.json'
 import { Link } from 'react-router-dom'
 
 
-console.log(PhrasesAPI.OpeningSentences)
-
-export function OpeningSentences() {
+export function LeadingPhrases() {
   return (
     <>
       <MenuNavigation />  
       <Container>
-        <h1>Frases de Início</h1>
+        <h1>Frases para condução</h1>
         <DropdownButton id="dropdown-basic-button" title="Categorias">
           <Dropdown.Item as={Link} to="/phrases/opening">Frases de Inicio</Dropdown.Item>
           <Dropdown.Item as={Link} to="/phrases/leading-phrases">Frases para condução</Dropdown.Item>
@@ -22,16 +20,17 @@ export function OpeningSentences() {
         </DropdownButton>
       </Container>
 
-      {PhrasesAPI.OpeningSentences.map((opening) => (
-        <Accordion key={opening.id}>
+      {PhrasesAPI.LeadingPhrases.map((leading) => (
+        <Accordion key={leading.id}>
         <Accordion.Item eventKey="1">
-          <Accordion.Header>{opening.title}</Accordion.Header>
+          <Accordion.Header>{leading.title}</Accordion.Header>
           <Accordion.Body>
-            {opening.content}
+            {leading.content}
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
       ))}
+
     </>
   )
 }

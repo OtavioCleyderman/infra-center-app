@@ -26,14 +26,14 @@ export function QuickAccess() {
             <a  href="https://www.google.com.br" target="_blank" rel="noopener noreferrer">
               <R2d2  className="icons-link"/>
             </a>
-            <h5 className="text-center">R2D2 Chat</h5>
+            <h5 className="text-center">WALL-E Chat</h5>
           </div>
 
           <div className="col">
             <a  href="https://www.google.com.br" target="_blank" rel="noopener noreferrer">
               <Webcredito className="icons-link"/>
             </a>
-            <h5 className="text-center">Webcrédito</h5>
+            <h5 className="text-center">Infra Info</h5>
           </div>
         </div>
 
@@ -42,14 +42,14 @@ export function QuickAccess() {
             <a  href="https://www.google.com.br" target="_blank" rel="noopener noreferrer">
               <GrafanaCartoes className="icons-link"/>
             </a>
-            <h5 className="text-center">Grafana Cartões</h5>
+            <h5 className="text-center">Grafana Monitoramento</h5>
           </div>
 
           <div className="col">
             <a  href="https://www.google.com.br" target="_blank" rel="noopener noreferrer">
               <GrafanaPesquisaCPF className="icons-link"/>
             </a>
-            <h5 className="text-center">Grafana Pesquisa CPF</h5>
+            <h5 className="text-center">Grafana Métricas</h5>
           </div>
 
           <div className="col">
@@ -65,7 +65,7 @@ export function QuickAccess() {
             <a  href="https://www.google.com.br" target="_blank" rel="noopener noreferrer">
               <SiteSuporteLojas className="icons-link"/>
             </a>
-            <h5 className="text-center">Site Suporte Lojas</h5>
+            <h5 className="text-center">Site Suporte Clientes</h5>
           </div>
 
 
@@ -80,7 +80,7 @@ export function QuickAccess() {
             <a  href="https://www.google.com.br" target="_blank" rel="noopener noreferrer">
               <PortalAntiFraude className="icons-link"/>
             </a>
-            <h5 className="text-center">Portal Antifraude</h5>
+            <h5 className="text-center">Monitoramento Segurança</h5>
           </div>
         </div>
       </div>

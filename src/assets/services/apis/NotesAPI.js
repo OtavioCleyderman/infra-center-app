@@ -13,7 +13,7 @@ export default class NotesAPI {
     static saveNote(noteToSave){
         const notes = NotesAPI.getAllNotes();
         const existing = notes.find(note => note.id == noteToSave.id);
-
+        
         // Editando/Atualizando uma nota
         if(existing) {
             existing.title = noteToSave.title;

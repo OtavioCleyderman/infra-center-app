@@ -1,7 +1,7 @@
 import { Container } from './styles/styleNotesApp'
 import NotesAPI from "../assets/services/apis/NotesAPI"
-import { useState } from 'react';
 const notes = NotesAPI.getAllNotes();
+const notesLocalStorage = JSON.parse(localStorage.getItem("notesapp-notes"));
 
 
 
@@ -15,82 +15,86 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
     // Adicionar uma nota
-    btnAddNote.addEventListener("click", () => {
-        const newNote = {
-            title: "Nova nota!",
-            body: "Tome nota..."
-        };
-        NotesAPI.saveNote(newNote)
-        location.reload()
-
-    });
-
-    // const lastNoteCreated = JSON.parse(localStorage.getItem("notesapp-notes"));
-    // document.querySelector(`.notes__list-item[data-note-id="${lastNoteCreated[lastNoteCreated.length -1].id}"]`).classList.add("notes__list-item--selected");
-    // updateNotePreviewVisibility(true)
+    if(btnAddNote) {
+        btnAddNote.addEventListener("click", () => {
+            const newNote = {
+                title: "Nova nota!",
+                body: "Tome nota..."
+            };
+            NotesAPI.saveNote(newNote)
+            location.reload()
     
+        });
+     
+    }
 
   
     // Salvar uma nota após modificar ela 
-    btnSaveNote.addEventListener("click", () => {
-        const updatedTitle = inpTitle.value.trim();
-        const updatedBody = inpBody.value.trim();
-        
-        NotesAPI.saveNote({
-            title: updatedTitle,
-            body: updatedBody,
-            id: noteSelectedID
+    if(btnSaveNote) {
+        btnSaveNote.addEventListener("click", () => {
+            const updatedTitle = inpTitle.value.trim();
+            const updatedBody = inpBody.value.trim();
+            
+            NotesAPI.saveNote({
+                title: updatedTitle,
+                body: updatedBody,
+                id: noteSelectedID
+            });
+    
+            location.reload()
+           
         });
+    }
 
-        location.reload()
-       
-    });
    
     
 
 
     // Adicionando eventos para selecionar ou excluir as notas
-    notesListContainer.querySelectorAll(".notes__list-item").forEach(noteListItem => {
-        // A visualização da nota inicia em branco e aparece apenas quando clicam em uma nota
-        const updateNotePreviewVisibility = (visible) => {
-            document.querySelector(".notes__preview").style.visibility = visible ? "visible" : "hidden";
-        }
-        updateNotePreviewVisibility(false);
-
-
-        noteListItem.addEventListener("click", () => {
-            noteSelectedID = noteListItem.dataset.noteId
-            const selectedNote = notes.find(note => note.id == noteSelectedID);
-            
-            document.querySelector(".notes__title").value = selectedNote.title;
-            document.querySelector(".notes__body").value = selectedNote.body;
+    if(notesListContainer) {
+        notesListContainer.querySelectorAll(".notes__list-item").forEach(noteListItem => {
+            // A visualização da nota inicia em branco e aparece apenas quando clicam em uma nota
+            const updateNotePreviewVisibility = (visible) => {
+                document.querySelector(".notes__preview").style.visibility = visible ? "visible" : "hidden";
+            }
+            updateNotePreviewVisibility(false);
     
-            document.querySelectorAll(".notes__list-item").forEach(noteListItem => {
-                noteListItem.classList.remove("notes__list-item--selected");
+    
+            noteListItem.addEventListener("click", () => {
+                noteSelectedID = noteListItem.dataset.noteId
+                const selectedNote = notes.find(note => note.id == noteSelectedID);
+                
+                document.querySelector(".notes__title").value = selectedNote.title;
+                document.querySelector(".notes__body").value = selectedNote.body;
+        
+                document.querySelectorAll(".notes__list-item").forEach(noteListItem => {
+                    noteListItem.classList.remove("notes__list-item--selected");
+                });
+        
+                document.querySelector(`.notes__list-item[data-note-id="${selectedNote.id}"]`).classList.add("notes__list-item--selected");
+                updateNotePreviewVisibility(true)
             });
     
-            document.querySelector(`.notes__list-item[data-note-id="${selectedNote.id}"]`).classList.add("notes__list-item--selected");
-            updateNotePreviewVisibility(true)
+    
+            noteListItem.addEventListener("dblclick", () => {
+                const doDelete = confirm("Você tem certeza que deseja excluir permanentemente essa nota?");
+    
+                if (doDelete) {
+                    const noteId = noteListItem.dataset.noteId
+                    NotesAPI.deleteNote(noteId)
+                    location.reload()
+                }
+            });
         });
-
-
-        noteListItem.addEventListener("dblclick", () => {
-            const doDelete = confirm("Você tem certeza que deseja excluir permanentemente essa nota?");
-
-            if (doDelete) {
-                const noteId = noteListItem.dataset.noteId
-                NotesAPI.deleteNote(noteId)
-                location.reload()
-            }
-        });
-    });
+    }
+  
 
 
 })
 
 
 export function NotesApp() {
-const [notesLocalStorage, setNotesLocalStorage] = useState(JSON.parse(localStorage.getItem("notesapp-notes")));
+
   return (
       <Container>
           <div className="notes" id="app">

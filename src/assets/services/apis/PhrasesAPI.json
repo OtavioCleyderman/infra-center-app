@@ -1,0 +1,83 @@
+{
+  "OpeningSentences": [
+    {
+      "id": 1,
+      "title":"Inicia atendimento: Bom dia",
+      "content":"Olá, bom dia. Irei lhe acompanhar agora nesse atendimento. Em que posso ajudar hoje? =)"
+    },
+    {
+      "id": 2,
+      "title":"Inicia atendimento: Boa Tarde",
+      "content":"Olá, boa tarde. Irei lhe acompanhar agora nesse atendimento. Em que posso ajudar hoje? =)"
+    },
+    {
+      "id": 3,
+      "title":"Inicia atendimento: Boa noite",
+      "content":"Olá, boa noite. Irei lhe acompanhar agora nesse atendimento. Em que posso ajudar hoje? =)"
+    },
+    {
+      "id": 4,
+      "title":"Inicia atendimento: Solicitação de patrimonio",
+      "content":"Entendi, iremos verificar para você. Por favor, me informe o patrimonio do seu notebook. Ele fica localizado na parte de baixo, uma placa escrito: 'Empresa X Patrimonio XXXXXX' "
+    },
+    {
+      "id": 5,
+      "title":"Inicia atendimento: Solicitação de dados adicionais",
+      "content":"Certo, iremos verificar a instabilidade no servidor. Para auxiliar na verificação pode me informar alguns detalhes de qual serviço estava realizando, qual sistema, print ou video de erro?"
+    },
+    {
+      "id": 6,
+      "title":"Inicia atendimento: Pedido de espera",
+      "content":"Irei verificar as informações e já retorno. Peço um momento, por favor, e precisando é só me chamar :)"
+    }
+  ],
+  "LeadingPhrases": [
+    {
+      "id": 1,
+      "title":"Condução: Retorno com as informações",
+      "content":"Obrigado por aguardar, consegui as informações que solicitou."
+    },
+    {
+      "id": 2,
+      "title":"Condução: Solicitação de procedimento",
+      "content":"Obrigado por aguardar. Por favor, pode acessar novamente o sistema. Tente realizar novamente a operação e verifica se agora conclui sem erros."
+    },
+    {
+      "id": 3,
+      "title":"Condução: Problema identificado",
+      "content":"Obrigado por aguardar, identificamos prolemas em um servidor que atende a sua empresa. Equipe já está atuando e dentro de 5 minutos já podem voltar a utilizar os serviços do sistema normalmente."
+    },
+    {
+      "id": 4,
+      "title":"Condução: Sem problemas no ambiente",
+      "content":"Obrigado por aguardar, verificado o ambiente e nenhum problema sinalizado ou localizado. Acesse novamente a plataforma e tente novamente a operação e me avisa se deu certo."
+    },
+    {
+      "id": 5,
+      "title":"Condução: Instabilidade confirmada",
+      "content":"Obrigado por aguardar, foi identificado uma instabilidade no sistema. Estamos atuando para normalização com o prazo em até 15 minutos."
+    }
+  ],
+  "ClosingSentences": [
+    {
+      "id": 1,
+      "title":"Encerramento: Bom dia",
+      "content":"Foi um prazer oferecer suporte e auxiliá-lo em sua dúvida. Tenha um ótimo dia =)"
+    },
+    {
+      "id": 2,
+      "title":"Encerramento: Boa tarde",
+      "content":"Foi um prazer oferecer suporte e auxiliá-lo em sua dúvida. Tenha uma ótima tarde =)"
+    },
+    {
+      "id": 3,
+      "title":"Encerramento: Boa noite",
+      "content":"Foi um prazer oferecer suporte e auxiliá-lo em sua dúvida. Tenha uma ótima noite =)"
+    },
+    {
+      "id": 4,
+      "title":"Encerramento: Falta de interação e ausência do usuário",
+      "content":"Devido a falta de interação e ausência esse atendimento será encerrado. Obrigado por entrar em contato, tenha um excelente dia."
+    }
+  ]
+}

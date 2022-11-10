@@ -9,8 +9,8 @@ import { Phrases } from "./pages/Phrases/Phrases"
 import { Notes } from "./pages/Notes/Notes"
 import { Tasks } from "./pages/Tasks/Tasks"
 import { OpeningSentences } from "./pages/Phrases/Categories/OpeningSentences"
-import { AboutLuizaCard } from "./pages/Phrases/Categories/AboutLuizaCard"
-import { AboutEquipment } from "./pages/Phrases/Categories/AboutEquipment"
+import { LeadingPhrases } from "./pages/Phrases/Categories/LeadingPhrases"
+import { ClosingSentences } from "./pages/Phrases/Categories/ClosingSentences"
 
 export function AppRoutes() {
   return (
@@ -19,8 +19,8 @@ export function AppRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/phrases" element={<Phrases />} />
         <Route path="/phrases/opening" element={<OpeningSentences />} />
-        <Route path="/phrases/about-luiza-card" element={<AboutLuizaCard />} />
-        <Route path="/phrases/about-equipment" element={<AboutEquipment />} />
+        <Route path="/phrases/leading-phrases" element={<LeadingPhrases />} />
+        <Route path="/phrases/closing" element={<ClosingSentences />} />
         <Route path="/my-tasks" element={<Tasks />} />
         <Route path="/notes" element={<Notes />} />
       </Routes>

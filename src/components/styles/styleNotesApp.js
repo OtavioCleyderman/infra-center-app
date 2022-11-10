@@ -21,8 +21,8 @@ export const Container = styled.div`
     border-right: 2px solid #dddddd;
     flex-shrink: 0;
     overflow-y: auto;
-    padding: 1em;
-    width: 300px;
+    padding: 1rem .4rem ;
+    width: 10rem;
 }
 
 .notes__add {
@@ -31,10 +31,10 @@ export const Container = styled.div`
     border-radius: 7px;
     color: #ffffff;
     cursor: pointer;
-    font-size: 1.25em;
+    font-size: 0.8rem;
     font-weight: bold;
-    margin-bottom: 1em;
-    padding: 0.75em 0;
+    margin-bottom: 1rem;
+    padding: 0.75rem 0;
     width: 100%;
 }
 
@@ -54,27 +54,29 @@ export const Container = styled.div`
 
 .notes__small-title,
 .notes__small-updated {
-    padding: 10px;
+    padding: .5rem;
 }
 
 .notes__small-title {
-    font-size: 1.2em;
+    font-size: 1rem;
 }
 
 .notes__small-body {
-    padding: 0 10px;
+    padding: 0 .8rem;
+    font-size: .8rem;
 }
 
 .notes__small-updated {
     color: #aaaaaa;
     font-style: italic;
     text-align: right;
+    font-size: .6rem;
 }
 
 .notes__preview {
     display: flex;
     flex-direction: column;
-    padding: 2em 3em;
+    padding: 1rem .8rem;
     flex-grow: 1;
 }
 
@@ -86,29 +88,67 @@ export const Container = styled.div`
 }
 
 .notes__title {
-    font-size: 3em;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
 .notes__body {
-    flex-grow: 1;
-    font-size: 1.2em;
+    flex-grow: .2;
+    font-size: 1rem;
     line-height: 1.5;
-    margin-top: 2em;
+    margin-top: 2rem;
     resize: none;
+    height: 2rem;
 }
 
 .save__note {
     background: #0000FF;
     color: #FFFFFF;
     border: none;
-    width: 8.2rem;
-    margin-top: 0.5rem;
+    width: 5rem;
     border-radius: 4px;
     padding: 5px;
+    font-size: .8rem;
+    margin-top: .8rem;
 }
 
 .save__note:hover{
     background: #0bbaff;
+}
+
+
+@media (min-width: 600px) {
+.notes__sidebar {
+    width: 18rem;
+}
+.notes__add {
+    font-size: .9rem;
+}
+
+.notes__small-title {
+    font-size: 1.2rem;
+}
+
+.notes__small-body {
+    font-size: 1rem;
+}
+
+.notes__small-updated {
+    font-size: .8rem;
+}
+.notes__title {
+    font-size: 2rem;
+}
+
+.notes__body {
+    flex-grow: .2;
+    font-size: 1.5rem;
+}
+.save__note {
+    width: 7rem;
+    padding: 5px;
+    font-size: 1rem;
+    margin-top: .8rem;
+}
 }
 `

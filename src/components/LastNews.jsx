@@ -14,21 +14,21 @@ export function LastNews() {
       </h2>
       <details>
         <Summary>
-          Erro 422 no Portal 360 enviado ao banco para análise
+          Servidor 022 em manutenção
         </Summary>
-        <p>Pegue os dados do cliente, dias em atraso e dados da(o) analista. Registre na planilha de consideração e oriente a loja a realizar pela central.</p>
+        <p>O servidor 022 entrou em manutenção, todos os seus serviços estão rodando normalmente pelo servidor alternativo. Em caso de algum problema acionar os responsáveis pela manutenção e acompanhamento @Teros e @Evo.</p>
       </details>
       <details>
         <Summary>
-          Erro do super limite para cliente com limite de R$ 900, corrigido!
+          Iniciado a migração para a nuvem dos servidores 10, 11 e 12!
         </Summary>
-        <p>Se alguém ainda pegar, nos reportar de imediato.</p>
+        <p>Processo ocorrerá durante a madrugada entre os dias 10 e 15 de novembro. Qualquer problema nesses servidores, resportar a equipe de @infra</p>
       </details>
       <details>
         <Summary>
-          Liberação dos acessos a todos os plenos em estudo com as áreas envolvidas
+          Problema de rede nas filiais resolvido!
         </Summary>
-        <p>Orientem que em casos de exceção os coordenadores abram o chamado no webcredito. A liberação de acesso a todos os plenos ainda está em análise.</p>
+        <p>Foi identificado e corrigido o problema na rede das filiais. Rede normal e com alto desempenho após a correção.</p>
       </details>
     </Container>
   )
