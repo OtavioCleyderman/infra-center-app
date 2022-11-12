@@ -18,5 +18,14 @@ export const StyledContainer = styled.div`
     .navbar-toggler-icon{
         fill: #FFFFFF;
     }
+
+    @media (min-width: 1500px) {
+        &{
+            font-size: clamp(1rem, 1vw, 3rem);
+        }
+        .navBar{
+            margin: auto;
+        }
+    }
    
 `
