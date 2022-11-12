@@ -20,11 +20,14 @@ export const StyledContainer = styled.div`
     }
 
     @media (min-width: 1500px) {
-        &{
-            font-size: clamp(1rem, 1vw, 3rem);
-        }
         .navBar{
             margin: auto;
+        }
+        .navBrand{
+            font-size: clamp(1rem, 1vw, 3rem);
+        }
+        .navMenus{
+            font-size: clamp(.8rem, .8vw, 2.5rem);
         }
     }
    
