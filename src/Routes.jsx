@@ -14,7 +14,7 @@ import { ClosingSentences } from "./pages/Phrases/Categories/ClosingSentences"
 
 export function AppRoutes() {
   return (
-    <Router>
+    <Router >
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/phrases" element={<Phrases />} />
