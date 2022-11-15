@@ -7,8 +7,6 @@ import PhrasesAPI from '../../../assets/services/apis/PhrasesAPI.json'
 import { Link } from 'react-router-dom'
 
 
-console.log(PhrasesAPI.OpeningSentences)
-
 export function OpeningSentences() {
   return (
     <>
