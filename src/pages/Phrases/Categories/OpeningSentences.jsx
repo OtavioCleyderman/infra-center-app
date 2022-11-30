@@ -1,5 +1,5 @@
 import { MenuNavigation } from "../../../components/MenuNavigation"
-import { Container } from "../styles"
+import { Container, DropdownContainer } from "../styles"
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Accordion from 'react-bootstrap/Accordion';
@@ -19,17 +19,19 @@ export function OpeningSentences() {
           <Dropdown.Item as={Link} to="/phrases/closing">Frases de encerramento</Dropdown.Item>
         </DropdownButton>
       </Container>
+      <DropdownContainer>
+        {PhrasesAPI.OpeningSentences.map((opening) => (
+          <Accordion key={opening.id}>
+          <Accordion.Item eventKey="1">
+            <Accordion.Header>{opening.title}</Accordion.Header>
+            <Accordion.Body>
+              {opening.content}
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+        ))}
+      </DropdownContainer>
 
-      {PhrasesAPI.OpeningSentences.map((opening) => (
-        <Accordion key={opening.id}>
-        <Accordion.Item eventKey="1">
-          <Accordion.Header>{opening.title}</Accordion.Header>
-          <Accordion.Body>
-            {opening.content}
-          </Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
-      ))}
     </>
   )
 }

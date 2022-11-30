@@ -2,7 +2,7 @@
   "homepage": "./",
   "name": "infra-center-app",
   "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",

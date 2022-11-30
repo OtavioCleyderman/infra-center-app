@@ -88,13 +88,13 @@ export const Container = styled.div`
 }
 
 .notes__title {
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
 }
 
 .notes__body {
     flex-grow: .2;
-    font-size: 1rem;
+    font-size: .8rem;
     line-height: 1.5;
     margin-top: 2rem;
     resize: none;

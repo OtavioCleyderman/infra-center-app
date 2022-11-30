@@ -6,6 +6,7 @@ export const Container = styled.div`
     }
     img{
         object-fit: cover;
+        
     }
 
     h3{

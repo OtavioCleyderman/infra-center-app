@@ -29,7 +29,7 @@ export function CarouselFade() {
 
           <Carousel.Caption>
             <h3>Equipe qualificada e reforçada</h3>
-            <p>Quadro da empresa sobe contando com equipe qualificada e pronta para ajudar na espanção dos nossos serviços de infra e suporte!</p>
+            <p>Quadro da empresa sobe contando com equipe qualificada e pronta para ajudar na expansão dos nossos serviços de infra e suporte!</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
