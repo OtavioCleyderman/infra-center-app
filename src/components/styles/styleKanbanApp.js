@@ -13,12 +13,19 @@ export const ContainerTasks = styled.div`
     color: white;
     border-radius: 5px;
     font-weight: 600;
-    height: 3.5rem; 
+    height: auto; 
     margin: 5px; 
     padding: 8px;
     display: flex; 
     align-items: center; 
     justify-content: center;
+    flex-direction: column;
+    font-size: clamp(.8rem, .5vw, 1rem);
+  }
+
+  .line{
+    border: solid gray 1px;
+    width: 100%;
   }
 
 .spanIcons{

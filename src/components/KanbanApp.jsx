@@ -142,10 +142,11 @@ const deleteTasksDone = () => {
                           > 
                             <div  style={{display: 'flex', flexDirection: "column", alignItems: "center"}}>
                               {item.title}  
-                              <div>
-                                {item.description}       
-                              </div>    
-                            </div>                 
+                            </div>   
+                            <div className='line'></div>              
+                            <div>
+                              {item.description}       
+                            </div>    
                           </div>
                           )}
                       </Draggable>
