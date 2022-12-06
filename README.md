@@ -1,7 +1,7 @@
 
 # Infra center app
 
-Como sabemos, a informação correta e no momento certo faz uma grande diferença e isso se aplica à todas as equipes, independente de qual área são. Se envolver equipes diferentes então, verá o qual importante é ter as informações de forma ágil, correta e organizada.
+Como sabemos, a informação correta e no momento certo faz uma grande diferença e isso se aplica à todas as equipes, independente de qual área são. Se envolver equipes diferentes então, verá o quão importante são as informações de forma ágil, correta e organizada.
 
 Pensando nisso e com minha vivência nas áreas de suporte e infraestrutura, quis tirar do papel a ideia de ter um "Infra center" onde poderemos ter informações, alertas e noticias importantes sobre e para a equipe de infraestrutura e suporte técnico. Também terá frases pré-definidas para serem usadas no chat de suporte e uma espécie de "To-do" para tarefas individuais a serem desenvolvidas no dia a dia.
 
